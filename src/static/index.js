@@ -20,6 +20,29 @@ window.addEventListener("load", function(evt) {
         }
     }
 
+    // Update line count
+    let prevLineCount = 0;
+    textArea.oninput = function(e) {
+        let arr = textArea.value.split("\n");
+
+        if (prevLineCount < arr.length) {
+            document.getElementById("lines").innerHTML = "";
+
+            for (let i = 0; i < arr.length; i++){
+                let newDiv = document.createElement("div");
+                let number = document.createTextNode(i + 1);
+                newDiv.appendChild(number);
+                document.getElementById("lines").appendChild(newDiv);
+            }
+            prevLineCount = arr.length;
+        }
+    }
+    
+    // scroll line count
+    textArea.onscroll = function(e){
+        document.getElementById("lines").style = "margin-top: " + -e.target.scrollTop + "px;"
+    }
+
     function clearOutput() {
         output.innerHTML = ""
     }

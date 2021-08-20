@@ -7,6 +7,16 @@
     background-color: #333;
 }
 
+#lines {
+    width: 3%;
+    font-size: 17px;
+    font-family: "consolab", monospace;
+    color:gray;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+}
+
 #editor {
     padding: 0.25%;
     height: 99.5%;
@@ -16,13 +26,13 @@
 }
 
 #code {
-    width: 100%;
+    width: 92%;
     height: 100%;
     padding: 0;
     margin: 0;
     outline: none;
     resize: none;
-    float: right;
+    float: left;
     border: none;
     color:white;
     background-color: inherit;
