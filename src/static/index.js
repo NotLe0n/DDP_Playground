@@ -6,10 +6,16 @@ window.addEventListener("load", function(evt) {
     let running = false
 
     textArea.onkeydown = function(e){
-        if(e.keyCode==9 || e.which==9){
+        // prevent CTRL-S from opening the Save Dialog (it's a habit of mine to press CTRL-S)
+        if (e.ctrlKey && e.key === 's'){
+            e.preventDefault();
+        }
+
+        // prevent tab from unfocusing the textArea (this also breaks CTRL-Z/CTRL-SHIFT-Z)
+        if(e.key === 'Tab'){
             e.preventDefault();
             var s = this.selectionStart;
-            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionStart, this.selectionEnd);
             this.selectionEnd = s+1; 
         }
     }
@@ -77,7 +83,6 @@ window.addEventListener("load", function(evt) {
             }))
         } 
     })
-
     
     window.addEventListener("beforeunload", function(evt) {
         if(ws) {

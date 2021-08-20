@@ -4,7 +4,7 @@
     top: 0;
     width: 100%;
     height: 60%;
-    background-color: #FFD;
+    background-color: #333;
 }
 
 #editor {
@@ -13,7 +13,6 @@
     width: 99.5%;
     font-size: 17px;
     overflow: hidden;
-    font-family: monospace;
 }
 
 #code {
@@ -25,8 +24,11 @@
     resize: none;
     float: right;
     border: none;
+    color:white;
     background-color: inherit;
     font-size: inherit;
+    font-family: "consolab", monospace;
+    tab-size: 2em;
 }
 
 #buttons {
@@ -35,12 +37,21 @@
     top: 60%;
     width: 100%;
     height: 10%;
+    background-color: #333;
 }
 
 #buttons button {
     position: relative;
     top: 25%;
     left: 5%;
+    width: 10%;
+    height: 50%;
+}
+
+#buttons #About {
+    position: relative;
+    top: 25%;
+    left: 90%;
     width: 10%;
     height: 50%;
 }
@@ -52,6 +63,8 @@
     width: 100%;
     height: 30%;
     box-sizing: border-box;
+    font-family: "consolab", monospace;
+    background-color: #222;
     border: 0.5px solid black;
     overflow: scroll;
 }
@@ -61,9 +74,15 @@
 }
 
 #output .stdout {
-    color: black;
+    color: white;
 }
 
 #output .stderr {
     color: red;
+}
+
+@font-face{
+    font-family: "consolab";
+    src: url('font/consolab.ttf'),
+    url('font/consolab.ttf'); /* IE */
 }
